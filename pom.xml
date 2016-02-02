@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>openbouquet</groupId>
@@ -12,16 +12,12 @@
 	</properties>
 
 	<modules>
-		<module>../bouquet-plugin-apachedrill</module>
 		<module>../bouquet-plugin-greenplum</module>
 		<module>../bouquet-plugin-mysql</module>
 		<module>../bouquet-plugin-postgresql</module>
 		<module>../bouquet-plugin-redshift</module>
-		<module>../bouquet-plugin-spark</module>
-		<module>../bouquet-plugin-oracle</module>
 		<module>../bouquet-core</module>
 		<module>../bouquet-server</module>
-		<module>../squid-v4-tests</module>
 	</modules>
 
 	<build>
@@ -65,7 +61,7 @@
 				<repository>
 					<id>upstream</id>
 					<url>http://192.168.254.25:8080/plugin/repository/everything/
-				</url>
+					</url>
 					<releases>
 						<enabled>true</enabled>
 					</releases>
@@ -78,7 +74,7 @@
 				<pluginRepository>
 					<id>upstream</id>
 					<url>http://192.168.254.25:8080/plugin/repository/everything/
-				</url>
+					</url>
 					<releases>
 						<enabled>true</enabled>
 					</releases>
@@ -95,6 +91,28 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 		</profile>
+
+		<profile>
+			<id>oracle</id>
+			<modules>
+				<module>../bouquet-plugin-oracle</module>
+			</modules>
+		</profile>
+
+		<profile>
+			<id>test</id>
+			<modules>
+				<module>../squid-v4-tests</module>
+			</modules>
+		</profile>
+
+                <profile>
+                        <id>hadoop</id>
+                        <modules>
+		                <module>../bouquet-plugin-spark</module>
+		                <module>../bouquet-plugin-apachedrill</module>
+                        </modules>
+                </profile>
 
 	</profiles>
 </project>
