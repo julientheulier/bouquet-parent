@@ -61,7 +61,7 @@ if [ ! -z $HADOOP ]
  	then
 		mvn clean install -DskipTests=true -Phadoop
 else
-		mvn clean install -DskipTests=true
+		mvn clean install -DskipTests=true -Plocal
 fi
 
 cd ..
@@ -74,7 +74,7 @@ echo "Installing Redshift JDBC driver"
 for i in $PLUGINS
 do
         cd $i;
-	mvn compile assembly:single && cp target/*-with-*.jar $DRIVER_DIR
+	mvn compile assembly:single -Plocal && cp target/*-with-*.jar $DRIVER_DIR
         cd ..;
 done
 if [ ! -z $HADOOP ]
@@ -82,7 +82,7 @@ if [ ! -z $HADOOP ]
                 for i in $PLUGINS_HADOOP
 		do
 		        cd $i;
-		        mvn compile assembly:single && cp target/*-with-*.jar $DRIVER_DIR
+		        mvn compile assembly:single -Plocal && cp target/*-with-*.jar $DRIVER_DIR
 		        cd ..;
 		done
 fi
