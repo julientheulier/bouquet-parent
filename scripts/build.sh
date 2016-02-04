@@ -5,7 +5,7 @@ REPO_HADOOP="bouquet-plugin-apachedrill bouquet-plugin-spark"
 PLUGINS="bouquet-plugin-redshift bouquet-plugin-postgresql bouquet-plugin-greenplum bouquet-plugin-mysql"
 PLUGINS_HADOOP="bouquet-plugin-apachedrill bouquet-plugin-spark"
 
-echo "This script is going to clone the repositiories in `pwd`/../ and install the jars into your local m2"
+echo "This script is going to clone the repositories in `pwd`/../ and install the jars into your local m2"
 echo "Use any argument to build hadoop plugins (Spark and Apache Drill)"
 
 if [ ! -z "$1" ]
@@ -46,6 +46,13 @@ if [ ! -z $HADOOP ]
         		cd ..;
 		done
 fi
+
+# HikariCP
+echo "Cloning HikariCP"
+git clone https://github.com/openbouquet/HikariCP &>/dev/null 2>/dev/null
+cd HikariCP
+mvn clean install -DskipTests=true -Dmaven.test.skip=true
+cd ..;
 
 # Build core and server
 cd bouquet-parent
