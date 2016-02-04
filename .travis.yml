@@ -6,4 +6,4 @@ jdk:
 install:
   - ./scripts/build.sh
 
-script: mvn package
+script: mvn package -P local
