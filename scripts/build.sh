@@ -67,6 +67,7 @@ fi
 cd ..
 
 # Install Redshift JDBC driver
+echo "Installing Redshift JDBC driver"
 ./bouquet-plugin-redshift/lib/maven-redshift-amazon-install.sh
 
 # Build plugins
