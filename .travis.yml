@@ -1,5 +1,4 @@
 language: java
-before_script:
- - ./scripts/build.sh
-script: 
- mvn package
+install:
+  - ./scripts/build.sh
+script: mvn package
