@@ -1,11 +1,41 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>openbouquet</groupId>
+	<groupId>io.openbouquet</groupId>
 	<artifactId>bouquet-parent</artifactId>
 	<packaging>pom</packaging>
 	<version>1.0.0-SNAPSHOT</version>
+
+	<name>Open Bouquet</name>
+	<description>The open source analytics toolbox</description>
+	<url>https://github.com/openbouquet/bouquet-parent</url>
+
+	<scm>
+		<connection>scm:git:git@github.com:openbouquet/bouquet-parent.git</connection>
+		<developerConnection>scm:git:git@github.com:openbouquet/bouquet-parent.git</developerConnection>
+		<url>https://github.com/openbouquet/bouquet-parent</url>
+		<tag>HEAD</tag>
+	</scm>
+
+	<licenses>
+		<license>
+			<name>General Affero Public License version 3</name>
+			<url>http://openbouquet.io</url>
+			<distribution>repo</distribution>
+			<comments>read LICENSE.txt</comments>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>The Open Bouquet Team</name>
+			<email>dev@openbouquet.io</email>
+			<url>http://openbouquet.io</url>
+			<organization>Squid Solutions</organization>
+			<organizationUrl>http://squidsolutions.com</organizationUrl>
+		</developer>
+	</developers>
 
 	<properties>
 		<additionalparam>-Xdoclint:none</additionalparam>
@@ -20,9 +50,74 @@
 		<module>../bouquet-server</module>
 	</modules>
 
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
+
 	<build>
 		<pluginManagement>
 			<plugins>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>2.2.1</version>
+					<executions>
+						<execution>
+							<id>attach-sources</id>
+							<goals>
+								<goal>jar-no-fork</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>2.9.1</version>
+					<executions>
+						<execution>
+							<id>attach-javadocs</id>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+				<plugin>
+					<groupId>org.sonatype.plugins</groupId>
+					<artifactId>nexus-staging-maven-plugin</artifactId>
+					<version>1.6.3</version>
+					<extensions>true</extensions>
+					<configuration>
+						<serverId>ossrh</serverId>
+						<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+						<autoReleaseAfterClose>true</autoReleaseAfterClose>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-gpg-plugin</artifactId>
+					<version>1.6</version>
+					<executions>
+						<execution>
+							<id>sign-artifacts</id>
+							<phase>verify</phase>
+							<goals>
+								<goal>sign</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
 
 				<plugin>
 					<groupId>external.atlassian.jgitflow</groupId>
@@ -106,13 +201,13 @@
 			</modules>
 		</profile>
 
-                <profile>
-                        <id>hadoop</id>
-                        <modules>
-		                <module>../bouquet-plugin-spark</module>
-		                <module>../bouquet-plugin-apachedrill</module>
-                        </modules>
-                </profile>
+		<profile>
+			<id>hadoop</id>
+			<modules>
+				<module>../bouquet-plugin-spark</module>
+				<module>../bouquet-plugin-apachedrill</module>
+			</modules>
+		</profile>
 
 	</profiles>
 </project>
