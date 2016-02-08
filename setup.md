@@ -36,14 +36,14 @@ check server logs at
 bouquet-server/target/tomcat/logs/kraken.log  
 
 check that bouquet api is responding by opening the 'status' endpoint (all you db connectors should be listed)  
-(http://localhost:9000/dev/v4.2/rs/status)
+<http://localhost:9000/dev/v4.2/rs/status>
 
 Now let's create a new "default" Customer along with a super-user account (admin/admin123)  
 ```
 curl --form "customerName=default;login=admin;password=admin123" localhost:9000/dev/v4.2/admin/create-customer
 ```
 
-# bouquet-server
+# bouquet-auth
 
 In order to handle users authentication, the auth webapp has to be running.  
 
@@ -59,7 +59,7 @@ mvn tomcat7:run
 ```
 
 try by accessing the 'users' endpoint which requires a valid auth token to display registered users list  
-(http://localhost:8080/admin/auth/oauth?response_type=token&redirect_uri=http://localhost:9000/dev/v4.2/rs/users&client_id=admin_console)
+<http://localhost:8080/admin/auth/oauth?response_type=token&redirect_uri=http://localhost:9000/dev/v4.2/rs/users&client_id=admin_console>
 
 Now you're ready to work with Bouquet.
 
