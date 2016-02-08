@@ -11,7 +11,7 @@ third-party software required :
 
 clone the bouquet-parent repository
 from your bouquet-parent directory execute the build script which will clone all required repositories and launch the maven install.
-note : the database connector jars will be isntalled in a "drivers" directory.
+note : the database connector jars will be installed in a "drivers" directory.
 ```
 ./scripts/build.sh
 ```
@@ -27,6 +27,7 @@ edit redis.json to match your redis connection settings
 
 launch bouquet server (from maven)
 ```
+cd ..
 mvn tomcat7:run
 ```
 
@@ -37,9 +38,6 @@ check that bouquet api is responding by opening the 'status' endpoint (all you d
 http://localhost:9000/dev/v4.2/rs/status
 
 Now let's create a new "default" Customer along with a super-user account (admin/admin123)
-
 ```
 curl --form "customerName=default;login=admin;password=admin123" localhost:9000/dev/v4.2/admin/create-customer
 ```
-
-# bouquet-auth
