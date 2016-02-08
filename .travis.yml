@@ -7,3 +7,7 @@ install:
   - ./scripts/build.sh
 
 script: mvn package
+
+addons:
+  artifacts: true
+  s3_region: "us-east-1"
