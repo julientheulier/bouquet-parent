@@ -2,8 +2,5 @@ language: java
 
 jdk:
   - oraclejdk8
-  
-install:
-  - ./scripts/build.sh
 
-script: mvn package -P local
+script: mvn package
