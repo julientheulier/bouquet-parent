@@ -1,4 +1,4 @@
-# Bouquet Parent
+# Bouquet Parent [![Build Status](https://travis-ci.org/openbouquet/bouquet-parent.svg?branch=master)](https://travis-ci.org/openbouquet/bouquet-parent)
 
 Bouquet Parent contains the parent maven project.
 
