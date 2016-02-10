@@ -6,4 +6,8 @@ jdk:
 install:
   - ./scripts/build.sh
 
-script: mvn package -P local
+script: mvn package
+
+addons:
+  artifacts: true
+  s3_region: "us-east-1"
