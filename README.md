@@ -31,7 +31,7 @@ https://bouquet.zendesk.com/hc/en-us
 
 ## Contributing
 
-The Bouquet development team is always excited to =erge new code and fixes into Bouquet projects. Please checkout our [contribution guidelines](CONTRIBUTING.md) before starting.
+The Bouquet development team is always excited to merge new code and fixes into Bouquet projects. Please checkout our [contribution guidelines](CONTRIBUTING.md) before starting.
 
 ## License
 
