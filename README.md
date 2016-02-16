@@ -62,7 +62,7 @@ mvn tomcat7:run
 
 5. Check out the server logs in `bouquet-server/target/tomcat/logs/kraken.log` file
 
-6. `Check that the Bouquet API is responding by querying the `status` endpoint (All the database connectors are listed by this endpoint) `http://localhost:9000/dev/v4.2/rs/status`
+6. Check that the Bouquet API is responding by querying the `status` endpoint (All the database connectors are listed by this endpoint) `http://localhost:9000/dev/v4.2/rs/status`
 
 7. Create a new "default" customer with a super-user account
 
@@ -83,7 +83,7 @@ cd bouquet-auth
 mvn tomcat7:run
 ```
 
-4. `Check that the Bouquet auth is responding by querying the `users` endpoint which requires a valid auth token to display the registered user list.
+4. Check that the Bouquet auth is responding by querying the `users` endpoint which requires a valid auth token to display the registered user list.
 
 `http://localhost:8080/admin/auth/oauth?response_type=token&redirect_uri=http://localhost:9000/dev/v4.2/rs/users&client_id=admin_console`
 
