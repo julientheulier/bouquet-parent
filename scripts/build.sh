@@ -21,16 +21,11 @@ cd ..
 DRIVER_DIR=`pwd`/drivers
 mkdir $DRIVER_DIR 2>/dev/null
 
-# We use gitflow
+# Clone the repositories
 for i in $REPO
 do
 	echo "Cloning" $i
 	git clone https://github.com/openbouquet/$i &>/dev/null 2>/dev/null
-	cd $i;
-	git checkout develop 2>/dev/null
-	git pull origin develop 2>/dev/null
-	git flow init -d 2>/dev/null
-	cd ..;
 done
 
 if [ ! -z $HADOOP ]
@@ -39,11 +34,6 @@ if [ ! -z $HADOOP ]
 		do
         		echo "Cloning" $i
 		        git clone https://github.com/openbouquet/$i &>/dev/null 2>/dev/null
-		        cd $i;
-		        git checkout develop 2>/dev/null
-		        git pull origin develop 2>/dev/null
-		        git flow init -d 2>/dev/null
-        		cd ..;
 		done
 fi
 
@@ -74,7 +64,7 @@ echo "Installing Redshift JDBC driver"
 for i in $PLUGINS
 do
         cd $i;
-	mvn compile assembly:single -Plocal && cp target/*-with-*.jar $DRIVER_DIR
+		mvn compile assembly:single -Plocal && cp target/*-with-*.jar $DRIVER_DIR
         cd ..;
 done
 if [ ! -z $HADOOP ]
