@@ -11,3 +11,7 @@ script: mvn package
 addons:
   artifacts: true
   s3_region: "us-east-1"
+  
+branches:
+  only:
+    - master
