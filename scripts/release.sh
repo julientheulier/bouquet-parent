@@ -33,7 +33,6 @@ do
 	cd $i;
 	git pull
 	git checkout develop
-	git flow init -d
 	cd ..;
 done
 for i in $dirprivate
@@ -42,17 +41,17 @@ do
 	cd $i;
 	git pull
 	git checkout develop
-	git flow init -d
 	cd ..;
 done
 
 #
-# start gitflow releases
+# start releases
 #
 for i in $alldirs
 do
+		echo starting release $1 for $i
         cd $i;
-        git flow release start $1
+        git checkout -b release/$1
         cd ..;
 done
 
@@ -64,6 +63,7 @@ mvn versions:set -DnewVersion=$1 -DgenerateBackupPoms=false
 cd ..;
 for i in $alldirs
 do
+		echo tagging $i as $1
         cd $i;
         git commit -am"set master branch pom version to $1"
         cd ..;
@@ -81,6 +81,8 @@ do
         git tag -am"$1" $1
         git branch -d release/$1
         git checkout develop
+        # back merge to develop
+        git merge --no-edit master
         cd ..;
 done
 

@@ -1,5 +1,5 @@
 #!/bin/bash  
-direc="bouquet-core bouquet-plugin-postgresql bouquet-plugin-greenplum bouquet-plugin-mysql bouquet-plugin-redshift bouquet-server bouquet-parent"
+direc="bouquet-core bouquet-plugin-postgresql bouquet-plugin-greenplum bouquet-plugin-mysql bouquet-plugin-redshift bouquet-plugin-spark bouquet-plugin-apachedrill bouquet-server bouquet-parent";
 dirprivate="bouquet-plugin-oracle squid-v4-tests";
 alldirs="$direc $dirprivate";
 
