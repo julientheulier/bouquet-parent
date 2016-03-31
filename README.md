@@ -32,6 +32,8 @@ Requirements:
 - Java 1.7+
 - MongoDB
 - Redis
+- tomcat7
+- maven
 
 1. Clone the [Bouquet parent](https://github.com/openbouquet/bouquet-parent) repository
 2. Execute the build script to get dependencies and launch the maven install
