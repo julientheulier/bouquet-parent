@@ -56,14 +56,14 @@ do
 done
 
 #
-# set master branches version to $1
+# set release branches version to $1
 #
 cd bouquet-parent
 mvn versions:set -DnewVersion=$1 -DgenerateBackupPoms=false
 cd ..;
 for i in $alldirs
 do
-		echo tagging $i as $1
+		echo committing $i as $1
         cd $i;
         git commit -am"set master branch pom version to $1"
         cd ..;
@@ -74,8 +74,9 @@ done
 #
 for i in $alldirs
 do
+		
         cd $i;
-        #git flow release finish -m"$1" $1
+        echo finishing $i
         git checkout master
         git merge --no-edit release/$1
         git tag -am"$1" $1
@@ -95,6 +96,7 @@ cd ..;
 for i in $alldirs
 do
         cd $i;
+        echo setting develop branch $i to $2-SNAPSHOT
         git commit -am"set develop branch pom version to $2-SNAPSHOT"
         cd ..;
 done
