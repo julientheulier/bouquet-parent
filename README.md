@@ -78,10 +78,17 @@ In order to handle user authentication, the auth webapp must be be running.
 
 1. Clone the [Bouquet auth](https://github.com/openbouquet/bouquet-auth) repository
 
-2. Launch Bouquet auth webapp (from maven)
+2. Configure Bouquet auth webapp
 
 ```
-cd bouquet-auth
+cd bouquet-auth/config
+cp auth-webapp_sample.xml auth-webapp.xml
+```
+ 
+3. Launch Bouquet auth webapp (from maven)
+
+```
+cd .. # Should go to bouquet-auth/
 mvn tomcat7:run
 ```
 
