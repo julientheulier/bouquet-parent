@@ -23,7 +23,11 @@ if [ -z $workdir ]
   	workdir="/tmp";
 fi
 
+current_time=$(date "+%Y.%m.%d-%H.%M.%S")
+workdir=$workdir/release.$current_time;
+
 echo "workdir : $workdir";
+mkdir $workdir;
 cd $workdir;
 
 # repositories setup
