@@ -6,7 +6,9 @@ alldirs="$direc $dirprivate";
 workdir="$1";
 if [ -z $workdir ]
   then
-  	workdir="/tmp";
+  	echo "Workdir must be specified"
+    echo usage: $0 workdir
+    exit
 fi
 
 echo "workdir : $workdir";
