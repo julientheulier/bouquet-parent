@@ -3,11 +3,18 @@ direc="bouquet-core bouquet-plugin-postgresql bouquet-plugin-greenplum bouquet-p
 dirprivate="bouquet-plugin-oracle squid-v4-tests";
 alldirs="$direc $dirprivate";
 
-workdir="$1";
+if [ -z "$1" ]
+  then
+  	echo "No version name"
+    echo usage: $0 version workdir
+    exit
+fi
+
+workdir="$2";
 if [ -z $workdir ]
   then
   	echo "Workdir must be specified"
-    echo usage: $0 workdir
+    echo usage: $0 version workdir
     exit
 fi
 
@@ -22,6 +29,7 @@ do
         cd $i;
         git push --tags
         git push origin master
+        git push origin release/$1
         git push origin develop
         cd ..;
 done

@@ -84,7 +84,7 @@ do
         git checkout master
         git merge --no-edit release/$1
         git tag -am"$1" $1
-        git branch -d release/$1
+        # keep release branches instead of doing : git branch -d release/$1
         git checkout develop
         # back merge to develop
         git merge --no-edit master
