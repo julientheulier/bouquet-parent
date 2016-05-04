@@ -45,16 +45,14 @@ cd bouquet-parent
 ./scripts/build.sh
 ```
 
-3. From the Bouquet server directory, edit the configuration files:
+3. From the Bouquet server directory, edit the Bouquet Server configuration file:
 
 ```
 cd bouquet-server/config
-cp bouquet_sample.xml bouquet.xml
-cp redis_sample.json redis.json
+cp bouquet-sample.json bouquet.json
 ```
 
-Open `bouquet.xml` file and edit the mongo db connection settings.
-Open `redis.json` file  and edit the redis connection settings.
+Open `bouquet.json` file and edit the mongo db connection settings.
 
 4. Launch bouquet server (from maven).
 ```
