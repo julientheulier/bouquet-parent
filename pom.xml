@@ -4,7 +4,7 @@
 	<groupId>io.openbouquet</groupId>
 	<artifactId>bouquet-parent</artifactId>
 	<packaging>pom</packaging>
-	<version>4.2.16-SNAPSHOT</version>
+	<version>4.2.16</version>
 
 	<name>Open Bouquet</name>
 	<description>The open source analytics toolbox</description>
