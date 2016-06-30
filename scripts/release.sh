@@ -33,7 +33,7 @@ cd $workdir;
 # repositories setup
 for i in $direc
 do
-	git clone git@github.com:openbouquet/$i
+	git clone https://github.com/openbouquet/$i
 	cd $i;
 	git pull
 	git checkout develop
