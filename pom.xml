@@ -4,7 +4,7 @@
 	<groupId>io.openbouquet</groupId>
 	<artifactId>bouquet-parent</artifactId>
 	<packaging>pom</packaging>
-	<version>4.2.28-SNAPSHOT</version>
+	<version>4.2.28-DEV</version>
 
 	<name>Open Bouquet</name>
 	<description>The open source analytics toolbox</description>
@@ -197,6 +197,13 @@
 				<module>../bouquet-plugin-oracle</module>
 			</modules>
 		</profile>
+
+        <profile>
+            <id>teradata</id>
+            <modules>
+                <module>../bouquet-plugin-teradata</module>
+            </modules>
+        </profile>
 
 		<profile>
 			<id>test</id>
