@@ -83,7 +83,7 @@ fi
 if [ ! -z $HADOOP ]
     then
         cd bouquet-parent
-        mvn test -Ptest -Dkraken.plugin.dir=$DRIVER_DIR -Dkraken.dir.plugin=$DRIVER_DIR
+        mvn test -Pallplugins -Ptest -Dkraken.plugin.dir=$DRIVER_DIR -Dkraken.dir.plugin=$DRIVER_DIR
 else
         echo "Not running the tests since Hadoop plugins are necessary for that"
 fi
