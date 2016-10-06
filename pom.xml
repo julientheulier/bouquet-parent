@@ -41,10 +41,6 @@
 	</properties>
 
 	<modules>
-		<module>../bouquet-plugin-greenplum</module>
-		<module>../bouquet-plugin-mysql</module>
-		<module>../bouquet-plugin-postgresql</module>
-		<module>../bouquet-plugin-redshift</module>
 		<module>../bouquet-core</module>
 		<module>../bouquet-server</module>
 	</modules>
@@ -192,31 +188,71 @@
 		</profile>
 
 		<profile>
+			<id>allplugins</id>
+			<modules>
+				<module>../bouquet-plugin-greenplum</module>
+				<module>../bouquet-plugin-mysql</module>
+				<module>../bouquet-plugin-postgresql</module>
+				<module>../bouquet-plugin-redshift</module>
+				<module>../bouquet-plugin-spark</module>
+				<module>../bouquet-plugin-apachedrill</module>
+			</modules>
+		</profile>
+
+		<profile>
 			<id>oracle</id>
 			<modules>
 				<module>../bouquet-plugin-oracle</module>
 			</modules>
 		</profile>
 
-        <profile>
-            <id>teradata</id>
-            <modules>
-                <module>../bouquet-plugin-teradata</module>
-            </modules>
-        </profile>
-
 		<profile>
-			<id>test</id>
+			<id>greenplum</id>
 			<modules>
-				<module>../squid-v4-tests</module>
+				<module>../bouquet-plugin-greenplum</module>
 			</modules>
 		</profile>
+
+		<profile>
+			<id>mysql</id>
+			<modules>
+				<module>../bouquet-plugin-mysql</module>
+			</modules>
+		</profile>
+
+		<profile>
+			<id>postgresql</id>
+			<modules>
+				<module>../bouquet-plugin-postgresql</module>
+			</modules>
+		</profile>
+
+		<profile>
+			<id>redshift</id>
+			<modules>
+				<module>../bouquet-plugin-redshift</module>
+			</modules>
+		</profile>
+
+                <profile>
+                    <id>teradata</id>
+                    <modules>
+                        <module>../bouquet-plugin-teradata</module>
+                    </modules>
+                </profile>
 
 		<profile>
 			<id>hadoop</id>
 			<modules>
 				<module>../bouquet-plugin-spark</module>
 				<module>../bouquet-plugin-apachedrill</module>
+			</modules>
+		</profile>
+
+		<profile>
+			<id>test</id>
+			<modules>
+				<module>../squid-v4-tests</module>
 			</modules>
 		</profile>
 
