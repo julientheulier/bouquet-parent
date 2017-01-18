@@ -29,7 +29,7 @@ do
         cd $i;
         git push --tags
         git push origin master
-        git push origin release/$1
+        git push --set-upstream  origin release/$1
         git push origin develop
         cd ..;
 done
