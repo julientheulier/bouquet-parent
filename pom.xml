@@ -254,6 +254,13 @@
 				<module>../squid-v4-tests</module>
 			</modules>
 		</profile>
+		
+		<profile>
+            <id>test-obs</id>
+            <modules>
+                <module>../obs-tests</module>
+            </modules>
+        </profile>
 
 	</profiles>
 </project>
