@@ -35,18 +35,16 @@ cd $workdir;
 # repositories setup
 for i in $direc
 do
-	git clone git@github.com:openbouquet/$i
+	git clone git@github.com:openbouquet/$i -b develop
 	cd $i;
 	git pull
-	git checkout develop
 	cd ..;
 done
 for i in $dirprivate
 do
-	git clone git@admin.squidsolutions.com:$i
+	git clone git@admin.squidsolutions.com:$i -b develop
 	cd $i;
 	git pull
-	git checkout develop
 	cd ..;
 done
 
