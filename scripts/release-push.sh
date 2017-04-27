@@ -1,6 +1,6 @@
 #!/bin/bash  
 direc="bouquet-core bouquet-plugin-postgresql bouquet-plugin-greenplum bouquet-plugin-mysql bouquet-plugin-redshift bouquet-plugin-teradata bouquet-server bouquet-parent";
-dirprivate="bouquet-plugin-oracle squid-v4-tests";
+dirprivate="bouquet-plugin-oracle squid-v4-tests obs-test";
 alldirs="$direc $dirprivate";
 
 if [ -z "$1" ]
