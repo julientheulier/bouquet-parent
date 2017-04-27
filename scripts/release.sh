@@ -3,14 +3,16 @@ direc="bouquet-core bouquet-plugin-postgresql bouquet-plugin-greenplum bouquet-p
 dirprivate="bouquet-plugin-oracle squid-v4-tests obs-tests";
 alldirs="$direc $dirprivate";
 
+version="$1"
+nextver="$2"
 
-if [ -z "$1" ]
+if [ -z "$version" ]
   then
   	echo "No version name"
     echo usage: $0 version next-version workdir
     exit
 fi
-if [ -z "$2" ]
+if [ -z "$nextver" ]
   then
   	echo "No next version name"
     echo usage: $0 version next-version workdir
@@ -53,23 +55,23 @@ done
 #
 for i in $alldirs
 do
-		echo starting release $1 for $i
+	echo starting release $version for $i
         cd $i;
-        git checkout -b release/$1
+        git checkout -b release/$version
         cd ..;
 done
 
 #
-# set release branches version to $1
+# set release branches version to $version
 #
 cd bouquet-parent
-mvn versions:set -DnewVersion=$1 -DgenerateBackupPoms=false
+mvn versions:set -DnewVersion=$version -DgenerateBackupPoms=false
 cd ..;
 for i in $alldirs
 do
-		echo committing $i as $1
+		echo committing $i as $version
         cd $i;
-        git commit -am"set master branch pom version to $1"
+        git commit -am"set master branch pom version to $version"
         cd ..;
 done
 
@@ -82,9 +84,9 @@ do
         cd $i;
         echo finishing $i
         git checkout master
-        git merge --no-edit release/$1
-        git tag -am"$1" $1
-        # keep release branches instead of doing : git branch -d release/$1
+        git merge --no-edit release/$version
+        git tag -am"$version" $version
+        # keep release branches instead of doing : git branch -d release/$version
         git checkout develop
         # back merge to develop
         git merge --no-edit master
@@ -92,16 +94,16 @@ do
 done
 
 #
-# set develop branches version to to next version $2-SNAPSHOT
+# set develop branches version to to next version $nextver-SNAPSHOT
 #
 cd bouquet-parent
-mvn versions:set -DnewVersion=$2-SNAPSHOT -DgenerateBackupPoms=false
+mvn versions:set -DnewVersion=$nextver-SNAPSHOT -DgenerateBackupPoms=false
 cd ..;
 for i in $alldirs
 do
         cd $i;
-        echo setting develop branch $i to $2-SNAPSHOT
-        git commit -am"set develop branch pom version to $2-SNAPSHOT"
+        echo setting develop branch $i to $nextver-SNAPSHOT
+        git commit -am"set develop branch pom version to $nextver-SNAPSHOT"
         cd ..;
 done
 
