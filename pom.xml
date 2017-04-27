@@ -193,8 +193,6 @@
 				<module>../bouquet-plugin-mysql</module>
 				<module>../bouquet-plugin-postgresql</module>
 				<module>../bouquet-plugin-redshift</module>
-				<module>../bouquet-plugin-spark</module>
-				<module>../bouquet-plugin-apachedrill</module>
 			</modules>
 		</profile>
 
