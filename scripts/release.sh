@@ -25,7 +25,15 @@ if [ -z $workdir ]
   	workdir="/tmp";
 fi
 
-current_time=$(date "+%Y.%m.%d-%H.%M.%S")
+
+exists=`git show-ref remotes/origin/release/$version`
+if [ -n "$exists" ]; then
+  echo "This branch $version already exists!"
+  exit 1
+fi
+
+
+current_time=$(date "+%Y.%m.%d-%H")
 workdir=$workdir/release.$current_time;
 
 echo "workdir : $workdir";
